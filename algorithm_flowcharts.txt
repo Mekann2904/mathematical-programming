@@ -1,0 +1,41 @@
+
+Greedy Algorithm (Value Density) Flowchart:
+
+Start
+↓
+Sort items by value density (value/weight) in descending order
+↓
+Initialize empty knapsack (total weight=0, total value=0)
+↓
+Process sorted item list:
+   ↓
+   Can current item be added without exceeding capacity?
+   ├─ Yes → Add item, update total weight and value
+   └─ No → Move to next item
+↓
+All items processed
+↓
+Output selected items and total value
+↓
+End
+
+Dynamic Programming Flowchart:
+
+Start
+↓
+Initialize DP table (size: (n+1) × (capacity+1))
+↓
+For item i=1 to n:
+   For weight w=1 to capacity:
+   ↓
+   Item i weight <= w?
+   ├─ Yes → DP[i][w] = max(DP[i-1][w], value[i] + DP[i-1][w-weight[i]])
+   └─ No → DP[i][w] = DP[i-1][w]
+↓
+Optimal value = DP[n][capacity]
+↓
+Backtrack to recover selected items
+↓
+Output results
+↓
+End
